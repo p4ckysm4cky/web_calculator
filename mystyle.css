@@ -1,0 +1,15 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #ff79c6;
+}
+
+
+.calc-container {
+    margin-top: 30px;
+    width: 400px;
+    border-style: solid;
+    background-color: #282a36;
+    border-color: #282a36;
+    height: 550px;
+}
