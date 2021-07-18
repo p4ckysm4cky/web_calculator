@@ -67,7 +67,7 @@ body {
 
 .btn {
     background-color: #424b6e;
-    border-radius: 8%;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,10 +93,28 @@ body {
     grid-row: 1/2;
 }
 
-
+.num:hover {
+    background-color: #8be9fd;
+    color: #44475a;
+}
 
 
 #equal {
     grid-column: 3/5;
+}
+
+#equal:hover {
+    background-color: #50fa7b;
+    color: #44475a;
+}
+
+.symbol:hover {
+    background-color: #bd93f9;
+    color: #44475a;
+}
+
+.calc-func:hover {
+    background-color: #f1fa8c;
+    color: #44475a;
 }
 
