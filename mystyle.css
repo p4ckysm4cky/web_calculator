@@ -7,9 +7,37 @@ body {
 
 .calc-container {
     margin-top: 30px;
+    padding: 20px;
     width: 400px;
     border-style: solid;
     background-color: #282a36;
     border-color: #282a36;
+    border-radius: 20px;
     height: 550px;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+
+}
+
+.screen {
+    background-color: #44475a; 
+    grid-column: 1/2;
+    border-radius: 10px;
+    display: grid;
+    text-align: right;
+}
+
+.screen p {
+    margin: 5px;
+    font-size: 25px;
+    font-family: monospace, sans-serif;
+    word-spacing: -5px;
+}
+
+#equation {
+    color: #bd93f9;
+}
+
+#answer {
+    color: #f8f8f2;
 }
