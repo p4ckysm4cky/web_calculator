@@ -16,9 +16,9 @@ body {
     background-color: #282a36;
     border-color: #282a36;
     border-radius: 20px;
-    height: 550px;
+    height: 575px;
     display: grid;
-    grid-template-rows: 100px 1fr;
+    grid-template-rows: 110px 1fr;
     grid-gap: 30px;
 
 }
