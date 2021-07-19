@@ -1,6 +1,6 @@
 let equationArray = [];
 let tempStorage = "";
-let symNotBlocked = true;
+let symNotBlocked = false;
 
 
 // DOMs
@@ -22,6 +22,11 @@ const numBtns = Array.from(document.getElementsByClassName("num"));
 
 
 // Functions
+function roundNumber(number) {
+    return Math.round(number * 100) / 100;
+}
+
+
 
 function clearScreen() {
     equationOutput.innerHTML = "";
@@ -37,6 +42,24 @@ function appendStorage() {
 
 }
 
+function evaluate() {
+    symbol = equationArray[1];
+    switch (symbol) {
+        case "+":
+            return roundNumber(parseFloat(equationArray[0]) + parseFloat(equationArray[2]));
+            break;
+    }
+}
+
+
+function autoEvaluate() {
+    appendStorage();
+    if (equationArray.length === 3) {
+        answer = evaluate();
+        equationOutput.innerHTML = answer;
+        equationArray = [answer];
+    }
+}
 
 
 
@@ -56,9 +79,16 @@ clearBtn.addEventListener("click", function(e) {
 
 plusBtn.addEventListener("click", function(e) {
     if (symNotBlocked) {
-        equationOutput.innerHTML += ` ${e.target.innerText} `;
-        appendStorage()
-        equationArray.push("+")
+        autoEvaluate();
+        equationOutput.innerHTML += ` ${e.target.innerText} `;   
+        equationArray.push("+");
         symNotBlocked = false;
+    }
+})
+
+equalBtn.addEventListener("click", function(e) {
+    appendStorage()
+    if (symNotBlocked && equationArray.length === 3) {
+        answerOutput.innerHTML = evaluate();
     }
 })
