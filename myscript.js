@@ -83,6 +83,9 @@ function autoEvaluate() {
 // Events
 for (i = 0; i < numBtns.length; i++) {
     numBtns[i].addEventListener("click", function(e) {
+    if (answerOutput.innerHTML !== ""){
+        clearScreen();
+    }
         equationOutput.innerHTML += e.target.innerText;
         tempStorage += e.target.innerText;
         symNotBlocked = true;
