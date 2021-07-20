@@ -138,3 +138,11 @@ minusBtn.addEventListener("click", function(e) {
         symNotBlocked = false;
     }
 })
+
+
+delBtn.addEventListener("click", function(e) {
+    if (tempStorage !== "") {
+        tempStorage = tempStorage.slice(0, -1);
+        equationOutput.innerHTML = equationOutput.innerHTML.slice(0, -1);
+    }
+})
