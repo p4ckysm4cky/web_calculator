@@ -35,6 +35,7 @@ body {
     margin: 5px;
     font-size: 25px;
     font-family: monospace, sans-serif;
+    overflow: hidden;
     word-spacing: -5px;
 }
 
