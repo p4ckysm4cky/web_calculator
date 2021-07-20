@@ -52,6 +52,18 @@ function evaluate() {
         case "*":
             return roundNumber(parseFloat(equationArray[0]) * parseFloat(equationArray[2]));
             break;
+        case "/":
+            if (parseFloat(equationArray[2]) === 0) {
+                clearScreen();
+                answerOutput.innerHTML = "ERROR";
+                return "ERROR";
+            } else {
+                return roundNumber(parseFloat(equationArray[0]) / parseFloat(equationArray[2]));
+            }
+            break;
+        case "-":
+            return roundNumber(parseFloat(equationArray[0]) - parseFloat(equationArray[2]));
+            break;
     }
 }
 
@@ -106,5 +118,23 @@ equalBtn.addEventListener("click", function(e) {
         answer = evaluate()
         answerOutput.innerHTML = answer
 
+    }
+})
+
+divideBtn.addEventListener("click", function(e) {
+    if (symNotBlocked) {
+        autoEvaluate();
+        equationOutput.innerHTML += ` ${e.target.innerText} `;   
+        equationArray.push("/");
+        symNotBlocked = false;
+    }
+})
+
+minusBtn.addEventListener("click", function(e) {
+    if (symNotBlocked) {
+        autoEvaluate();
+        equationOutput.innerHTML += ` ${e.target.innerText} `;   
+        equationArray.push("-");
+        symNotBlocked = false;
     }
 })
