@@ -37,9 +37,10 @@ function clearScreen() {
 }
 
 function appendStorage() {
-    equationArray.push(tempStorage);
-    tempStorage = "";
-
+    if (tempStorage !== ""){
+        equationArray.push(tempStorage);
+        tempStorage = "";
+    }
 }
 
 function evaluate() {
@@ -48,13 +49,17 @@ function evaluate() {
         case "+":
             return roundNumber(parseFloat(equationArray[0]) + parseFloat(equationArray[2]));
             break;
+        case "*":
+            return roundNumber(parseFloat(equationArray[0]) * parseFloat(equationArray[2]));
+            break;
     }
 }
 
 
 function autoEvaluate() {
     appendStorage();
-    if (equationArray.length === 3) {
+    if (equationArray.length >= 3) {
+        answerOutput.innerHTML = ""
         answer = evaluate();
         equationOutput.innerHTML = answer;
         equationArray = [answer];
@@ -86,9 +91,20 @@ plusBtn.addEventListener("click", function(e) {
     }
 })
 
+multiplyBtn.addEventListener("click", function(e) {
+    if (symNotBlocked) {
+        autoEvaluate();
+        equationOutput.innerHTML += ` ${e.target.innerText} `;   
+        equationArray.push("*");
+        symNotBlocked = false;
+    }
+})
+
 equalBtn.addEventListener("click", function(e) {
     appendStorage()
     if (symNotBlocked && equationArray.length === 3) {
-        answerOutput.innerHTML = evaluate();
+        answer = evaluate()
+        answerOutput.innerHTML = answer
+
     }
 })
